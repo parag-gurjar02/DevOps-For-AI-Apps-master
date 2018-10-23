@@ -19,34 +19,8 @@ export container_name=$3
 export blob_name1=$4
 export blob_name2=$5
 
-echo "Azure Storage Account" $AZURE_STORAGE_ACCOUNT
-echo "Azure Storage key" $AZURE_STORAGE_KEY
-echo "Azure BLOB Container name" $container_name
-echo "Azure File Name 1" $blob_name1
-echo "Azure File Name 2" $blob_name2
-
-
 # Downloading Blob
 mkdir flaskwebapp
-
-if [ $? != 0 ]; then
-   echo "creation of flaskwebb dir is unsuccessful !!"
-fi 
-
 az storage blob download --container-name $container_name --name $blob_name1 --file flaskwebapp/$blob_name1 --output table
-
-if [ $? != 0 ]; then
-   echo "Download of model file 1 from Azure Stoage Blob Unsuccessful !!"
-fi 
-
 az storage blob download --container-name $container_name --name $blob_name2 --file flaskwebapp/$blob_name2 --output table
-
-if [ $? != 0 ]; then
-   echo "Download of model file 2 from Azure Stoage Blob Unsuccessful !!"
-fi 
-
 az storage blob list --container-name $container_name --output table
-
-if [ $? != 0 ]; then
-   echo "List command after downloading models failed !!"
-fi 
