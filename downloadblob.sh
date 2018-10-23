@@ -37,14 +37,14 @@ echo "Azure File Name 2" $blob_name2
 #cd flaskwebapp
 #echo $(ls)
 
-dir = "flaskwebapp" ;
-if [[ ! -e $dir ]]; then
-    mkdir $dir
-elif [[ ! -d $dir ]]; then
-    echo "$dir already exists but is not a directory" 1>&2
-fi  
+#dir = "flaskwebapp" ;
+#if [[ ! -e $dir ]]; then
+#    mkdir $dir
+#elif [[ ! -d $dir ]]; then
+#    echo "$dir already exists but is not a directory" 1>&2
+#fi  
 
-echo "==========================================="
+#echo "==========================================="
 
 az storage blob download --container-name $container_name --name $blob_name1 --file flaskwebapp/$blob_name1 --output table
 
