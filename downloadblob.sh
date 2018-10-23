@@ -27,11 +27,16 @@ echo "Azure File Name 2" $blob_name2
 
 
 # Downloading Blob
-mkdir -p flaskwebapp 
+#mkdir -p flaskwebapp 
 
-if [ $? != 0 ]; then
-   echo "creation of flaskwebb dir is unsuccessful !!"
-fi 
+#if [ $? -ne 0 ]; then
+#   echo "creation of flaskwebb dir is unsuccessful !!"
+#fi 
+
+echo "Checking what is inside  flaskwebapp !!"
+cd flaskwebapp
+echo $(ls)
+echo "==========================================="
 
 az storage blob download --container-name $container_name --name $blob_name1 --file flaskwebapp/$blob_name1 --output table
 
