@@ -27,7 +27,7 @@ echo "Azure File Name 2" $blob_name2
 
 
 # Downloading Blob
-mkdir flaskwebapp
+mkdir -p flaskwebapp 
 
 if [ $? != 0 ]; then
    echo "creation of flaskwebb dir is unsuccessful !!"
