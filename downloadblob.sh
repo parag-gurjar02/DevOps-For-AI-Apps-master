@@ -33,25 +33,33 @@ echo "Azure File Name 2" $blob_name2
 #   echo "creation of flaskwebb dir is unsuccessful !!"
 #fi 
 
-echo "Checking what is inside  flaskwebapp !!"
-cd flaskwebapp
-echo $(ls)
+#echo "Checking what is inside  flaskwebapp !!"
+#cd flaskwebapp
+#echo $(ls)
+
+dir = "flaskwebapp" ;
+if [[ ! -e $dir ]]; then
+    mkdir $dir
+elif [[ ! -d $dir ]]; then
+    echo "$dir already exists but is not a directory" 1>&2
+fi  
+
 echo "==========================================="
 
 az storage blob download --container-name $container_name --name $blob_name1 --file flaskwebapp/$blob_name1 --output table
 
-if [ $? != 0 ]; then
-   echo "Download of model file 1 from Azure Stoage Blob Unsuccessful !!"
-fi 
+#if [ $? != 0 ]; then
+#   echo "Download of model file 1 from Azure Stoage Blob Unsuccessful !!"
+#fi 
 
 az storage blob download --container-name $container_name --name $blob_name2 --file flaskwebapp/$blob_name2 --output table
 
-if [ $? != 0 ]; then
-   echo "Download of model file 2 from Azure Stoage Blob Unsuccessful !!"
-fi 
+#if [ $? != 0 ]; then
+#   echo "Download of model file 2 from Azure Stoage Blob Unsuccessful !!"
+#fi 
 
 az storage blob list --container-name $container_name --output table
 
-if [ $? != 0 ]; then
-   echo "List command after downloading models failed !!"
-fi 
+#if [ $? != 0 ]; then
+#   echo "List command after downloading models failed !!"
+#fi 
