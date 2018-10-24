@@ -17,7 +17,7 @@ class MockModel(object):
 
 
 def test_init(monkeypatch):
-    """ Tests model initialisation
+    """ Tests model initialisation1
     """
     monkeypatch.setattr(driver, 'LABEL_FILE', 'synset.txt')
     monkeypatch.setattr(driver, 'MODEL_FILE', 'ResNet_152.model')
