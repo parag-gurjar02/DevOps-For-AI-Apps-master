@@ -5,6 +5,6 @@ metadata:
 spec:
  containers:
    - name: model-api
-     image: $ACR_DNS/model-api:$(Build.BuildId)
+     image: imageclassification:1
      ports:
        - containerPort: 88
