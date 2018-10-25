@@ -33,9 +33,7 @@ echo "Azure File Name 2" $blob_name2
 #   echo "creation of flaskwebb dir is unsuccessful !!"
 #fi 
 
-#echo "Checking what is inside  flaskwebapp !!"
-#cd flaskwebapp
-#echo $(ls)
+
 
 #dir = "flaskwebapp" ;
 #if [[ ! -e $dir ]]; then
@@ -63,3 +61,7 @@ az storage blob list --container-name $container_name --output table
 #if [ $? != 0 ]; then
 #   echo "List command after downloading models failed !!"
 #fi 
+
+echo "Checking what is inside  flaskwebapp !!"
+cd flaskwebapp
+echo $(ls)
