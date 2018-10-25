@@ -5,6 +5,6 @@ metadata:
 spec:
  containers:
    - name: model-api
-     image: imageclassification:1
+     image: crrq51278013.azurecr.io/model-api:53
      ports:
        - containerPort: 88
