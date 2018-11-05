@@ -5,12 +5,8 @@ metadata:
 spec:
  containers:
    - name: model-api
-     image: crrq51278013.azurecr.io/model-api:155
+     image: crrq51278013.azurecr.io/model-api:156
      ports:
-       - name: http
-         nodePort: 31342
-         containerPort : 88
-         protocol: TCP
-         targetPort : 5000
+       - containerPort: 88
  imagePullSecrets:
    - name: imageclassificationappdemosecret
