@@ -14,11 +14,11 @@ spec:
     spec: 
       containers: 
       - name: model-api 
-        image: crrq51278013.azurecr.io/model-api:163
+        image: crrq51278013.azurecr.io/model-api:164
         ports: 
         - containerPort: 88
-	imagePullSecrets:
-	 - name: imageclassificationappdemosecret
+imagePullSecrets:
+ - name: imageclassificationappdemosecret
 
 kind: Service 
 apiVersion: v1 
