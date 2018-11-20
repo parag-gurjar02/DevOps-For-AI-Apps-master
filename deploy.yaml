@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: extensions/v1
 kind: Ingress
 metadata:
  name: imageclassificationapp
@@ -16,7 +16,7 @@ spec:
           servicePort: 88
     containers:
      - name: model-api
-       image: crrq51278013.azurecr.io/model-api:169
+       image: crrq51278013.azurecr.io/model-api:170
     ports:
      - containerPort: 88
     imagePullSecrets:
