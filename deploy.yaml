@@ -13,10 +13,10 @@ spec:
       - path: /
         backend:
           serviceName: imageclassificationapp-service
-          servicePort: 80
+          servicePort: 88
     containers:
      - name: model-api
-       image: crrq51278013.azurecr.io/model-api:167
+       image: crrq51278013.azurecr.io/model-api:169
     ports:
      - containerPort: 88
     imagePullSecrets:
