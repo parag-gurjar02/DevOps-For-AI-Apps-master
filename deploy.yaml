@@ -1,5 +1,18 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
+kind: Pod 
+metadata:
+ name: imageclassificationapp
+spec:
+ containers:
+   - name: model-api
+     image: crrq51278013.azurecr.io/model-api:175
+     ports:
+       - containerPort: 88
+ imagePullSecrets:
+   - name: imageclassificationappdemosecret
+   
 kind: Ingress
+apiVersion: v1 
 metadata:
  name: imageclassificationapp
  annotations:
@@ -12,5 +25,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: imageclassificationapp-service
-          servicePort: 88
+        serviceName: imageclassificationapp-service
+        servicePort: 88
