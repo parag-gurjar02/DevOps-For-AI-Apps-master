@@ -16,7 +16,7 @@ spec:
           servicePort: 80
     containers:
      - name: model-api
-       image: crrq51278013.azurecr.io/model-api:166
+       image: crrq51278013.azurecr.io/model-api:167
     ports:
      - containerPort: 88
     imagePullSecrets:
