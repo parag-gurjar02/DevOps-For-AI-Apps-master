@@ -16,6 +16,4 @@ spec:
           servicePort: 88
     containers:
      - name: model-api
-       image: crrq51278013.azurecr.io/model-api:172
-    ports:
-     - containerPort: 88
+       image: crrq51278013.azurecr.io/model-api:173
