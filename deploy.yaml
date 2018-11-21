@@ -12,7 +12,7 @@ spec:
    - name: imageclassificationappdemosecret
    
 kind: Ingress
-apiVersion: v1 
+apiVersion: extensions/v1 
 metadata:
  name: imageclassificationapp
  annotations:
