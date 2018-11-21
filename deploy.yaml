@@ -1,15 +1,35 @@
-apiVersion: apps/v1
-kind: Pod 
-metadata:
- name: imageclassificationapp
-spec:
- containers:
-   - name: model-api
-     image: crrq51278013.azurecr.io/model-api:177
-     ports:
-       - containerPort: 88
- imagePullSecrets:
-   - name: imageclassificationappdemosecret
+apiVersion: v1
+kind: Deployment 
+metadata: 
+  name: imageclassificationapp 
+spec: 
+  selector: 
+    matchLabels: 
+      app: imageclassificationapp 
+  replicas: 2 # tells deployment to run 2 pods matching the template 
+  template:
+    metadata: 
+      labels: 
+        app: imageclassificationapp 
+    spec: 
+      containers: 
+      - name: model-api 
+        image: crrq51278013.azurecr.io/model-api:178
+        ports: 
+        - containerPort: 88
+
+kind: Service 
+apiVersion: v1 
+metadata: 
+  name: imageclassificationapp
+spec: 
+  selector: 
+    app: imageclassificationapp 
+  ports: 
+  - protocol: TCP 
+    port: 88 
+    targetPort: 88 
+  type: LoadBalancer 
    
 kind: Ingress
 apiVersion: extensions/v1 
@@ -25,5 +45,5 @@ spec:
       paths:
       - path: /
         backend:
-        serviceName: imageclassificationapp-service
+        serviceName: imageclassificationapp
         servicePort: 88
