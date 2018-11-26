@@ -14,10 +14,10 @@ spec:
     spec: 
       containers: 
       - name: model-api 
-        image: crrq51278013.azurecr.io/model-api:191
+        image: crrq51278013.azurecr.io/model-api:192
         ports: 
-        - containerPort: 88
-
+        - containerPort: 88        
+---
 apiVersion: v1
 kind: Service
 metadata:
