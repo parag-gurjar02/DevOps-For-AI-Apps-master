@@ -14,7 +14,7 @@ spec:
     spec: 
       containers: 
       - name: model-api 
-        image: crrq51278013.azurecr.io/model-api:180
+        image: crrq51278013.azurecr.io/model-api:181
         ports: 
         - containerPort: 80
 
@@ -25,7 +25,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-  - port: 88
-    targetPort: 80
+  - port: 80
+  #  targetPort: 80
   selector:
     app: imageclassificationapp
