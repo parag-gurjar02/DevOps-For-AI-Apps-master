@@ -6,7 +6,7 @@ spec:
   selector: 
     matchLabels: 
       app: imageclassificationapp 
-  replicas: 2 # tells deployment to run 2 pods matching the template 
+  replicas: 1 # tells deployment to run 2 pods matching the template 
   template:
     metadata: 
       labels: 
@@ -14,36 +14,18 @@ spec:
     spec: 
       containers: 
       - name: model-api 
-        image: crrq51278013.azurecr.io/model-api:178
+        image: crrq51278013.azurecr.io/model-api:179
         ports: 
-        - containerPort: 88
+        - containerPort: 80
 
-kind: Service 
-apiVersion: v1 
-metadata: 
-  name: imageclassificationapp
-spec: 
-  selector: 
-    app: imageclassificationapp 
-  ports: 
-  - protocol: TCP 
-    port: 88 
-    targetPort: 88 
-  type: LoadBalancer 
-   
-kind: Ingress
-apiVersion: extensions/v1 
+apiVersion: v1
+kind: Service
 metadata:
- name: imageclassificationapp
- annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: imageclassificationapp
 spec:
-  rules:
-  - http:
-      paths:
-      - path: /
-        backend:
-        serviceName: imageclassificationapp
-        servicePort: 88
+  type: LoadBalancer
+  ports:
+  - port: 88
+    targetPort: 80
+  selector:
+    app: imageclassificationapp
