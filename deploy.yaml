@@ -16,16 +16,4 @@ spec:
       - name: model-api 
         image: crrq51278013.azurecr.io/model-api:192
         ports: 
-        - containerPort: 88        
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: imageclassificationapp
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 85
-    targetPort: 88
-  selector:
-    app: imageclassificationapp
+        - containerPort: 88
