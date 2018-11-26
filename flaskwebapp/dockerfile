@@ -1,4 +1,3 @@
-
 FROM ubuntu:16.04
 MAINTAINER Mathew Salvaris <mathew.salvaris@microsoft.com>
 
@@ -22,4 +21,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pip install https://cntk.ai/PythonWheel/CPU-Only/cntk-2.0-cp27-cp27mu-linux_x86_64.whl
 
 EXPOSE 88
-CMD ["python", "app.py"] 
+CMD ["supervisord", "-c", "/etc/supervisord.conf"]
