@@ -29,4 +29,3 @@ spec:
     targetPort: 88	
   selector:	
     app: imageclassificationapp
-# This is Parag Gurjar
