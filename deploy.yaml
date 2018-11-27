@@ -14,7 +14,7 @@ spec:
     spec: 
       containers: 
       - name: model-api 
-        image: crrq51278013.azurecr.io/model-api:199
+        image: crrq51278013.azurecr.io/model-api:200
         ports: 
         - containerPort: 88
 
@@ -29,3 +29,4 @@ spec:
     targetPort: 88	
   selector:	
     app: imageclassificationapp
+# This is Parag Gurjar
