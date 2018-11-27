@@ -14,7 +14,7 @@ spec:
     spec: 
       containers: 
       - name: model-api 
-        image: crrq51278013.azurecr.io/model-api:203
+        image: crrq51278013.azurecr.io/model-api:204
         ports: 
         - containerPort: 88
 ---
