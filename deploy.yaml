@@ -5,8 +5,40 @@ metadata:
 spec:
  containers:
    - name: model-api
-     image: crrq51278013.azurecr.io/model-api:196
+     image: crrq51278013.azurecr.io/model-api:197
      ports:
        - containerPort: 88
  imagePullSecrets:
    - name: imageclassificationapp
+---
+apiVersion: v1
+kind: Deployment 
+metadata: 
+  name: imageclassificationapp 
+spec: 
+  selector: 
+    matchLabels: 
+      app: imageclassificationapp 
+  replicas: 1 # tells deployment to run 2 pods matching the template 
+  template:
+    metadata: 
+      labels: 
+        app: imageclassificationapp 
+    spec: 
+      containers: 
+      - name: model-api 
+        image: crrq51278013.azurecr.io/model-api:197
+        ports: 
+        - containerPort: 88
+---
+apiVersion: v1	
+kind: Service	
+metadata:	
+  name: imageclassificationapp	
+spec:	
+  type: LoadBalancer	
+  ports:	
+  - port: 88
+    targetPort: 88	
+  selector:	
+    app: imageclassificationapp
